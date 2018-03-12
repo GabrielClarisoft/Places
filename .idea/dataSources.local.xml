@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails places: test" uuid="ab2f1038-127e-48e5-8712-665b4e73f5a5">
+      <database-info product="PostgreSQL" version="9.5.12" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <user-name>gabriel</user-name>
+      <introspection-schemas>places_test:public</introspection-schemas>
+    </data-source>
+    <data-source name="Rails places: development" uuid="ddb8983c-6d0b-4649-abed-e5354ffc9b38">
+      <database-info product="PostgreSQL" version="9.5.12" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>gabriel</user-name>
+      <introspection-schemas>places_development:public</introspection-schemas>
+    </data-source>
+    <data-source name="Rails places: production" uuid="38567b31-db5f-4714-8e66-ad64436f7a2f">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <user-name>gabriel</user-name>
+    </data-source>
+  </component>
+</project>
