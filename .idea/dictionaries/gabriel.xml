@@ -2,11 +2,13 @@
   <dictionary name="gabriel">
     <words>
       <w>authenticatable</w>
+      <w>carrierwave</w>
       <w>confirmable</w>
       <w>mixins</w>
       <w>omniauthable</w>
       <w>registerable</w>
       <w>rememberable</w>
+      <w>therubyracer</w>
       <w>timeoutable</w>
       <w>trackable</w>
       <w>turbolinks</w>

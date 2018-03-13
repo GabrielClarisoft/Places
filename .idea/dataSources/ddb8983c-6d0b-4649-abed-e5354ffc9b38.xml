@@ -6,12 +6,12 @@
       <ObjectId>12413</ObjectId>
     </database>
     <database id="3" parent="1" name="places_development">
-      <ObjectId>16965</ObjectId>
+      <ObjectId>17260</ObjectId>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
     <database id="4" parent="1" name="places_test">
-      <ObjectId>16966</ObjectId>
+      <ObjectId>17261</ObjectId>
     </database>
     <role id="5" parent="1" name="gabriel">
       <ObjectId>16384</ObjectId>
@@ -35,8 +35,8 @@
     </role>
     <schema id="7" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-03-12.15:29:06.141</IntrospectionTimestamp>
-      <IntrospectionStateNumber>920</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-03-13.15:30:30.866</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1056</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -55,149 +55,336 @@
     <schema id="12" parent="3" name="information_schema">
       <ObjectId>12121</ObjectId>
     </schema>
-    <sequence id="13" parent="7" name="users_id_seq">
-      <ObjectId>16974</ObjectId>
-      <StateNumber>919</StateNumber>
+    <sequence id="13" parent="7" name="photos_id_seq">
+      <ObjectId>17304</ObjectId>
+      <StateNumber>1054</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <table id="14" parent="7" name="schema_migrations">
-      <ObjectId>16967</ObjectId>
-      <StateNumber>917</StateNumber>
+    <sequence id="14" parent="7" name="trips_id_seq">
+      <ObjectId>17287</ObjectId>
+      <StateNumber>1053</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="15" parent="7" name="users_id_seq">
+      <ObjectId>17269</ObjectId>
+      <StateNumber>1050</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <table id="16" parent="7" name="photos">
+      <ObjectId>17306</ObjectId>
+      <StateNumber>1056</StateNumber>
     </table>
-    <table id="15" parent="7" name="users">
-      <ObjectId>16976</ObjectId>
-      <StateNumber>920</StateNumber>
+    <table id="17" parent="7" name="schema_migrations">
+      <ObjectId>17262</ObjectId>
+      <StateNumber>1048</StateNumber>
     </table>
-    <column id="16" parent="14" name="version">
-      <Position>1</Position>
-      <DataType>varchar|0</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>917</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="17" parent="14" name="unique_schema_migrations">
-      <ObjectId>16973</ObjectId>
-      <ColNames>version</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <column id="18" parent="15" name="id">
+    <table id="18" parent="7" name="trips">
+      <ObjectId>17289</ObjectId>
+      <StateNumber>1054</StateNumber>
+    </table>
+    <table id="19" parent="7" name="users">
+      <ObjectId>17271</ObjectId>
+      <StateNumber>1055</StateNumber>
+    </table>
+    <column id="20" parent="16" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1054</StateNumber>
+      <DefaultExpression>nextval(&apos;photos_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>photos_id_seq</SequenceName>
+    </column>
+    <column id="21" parent="16" name="trip_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1054</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="22" parent="16" name="created_at">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1054</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="23" parent="16" name="updated_at">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1054</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="24" parent="16" name="image">
+      <Position>5</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>1056</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="25" parent="16" name="photos_pkey">
+      <ObjectId>17310</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="26" parent="16" name="index_photos_on_trip_id">
+      <ObjectId>17312</ObjectId>
+      <ColNames>trip_id</ColNames>
+    </index>
+    <key id="27" parent="16" name="photos_pkey">
+      <ObjectId>17311</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>photos_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="28" parent="16" name="fk_rails_27c247998a">
+      <ObjectId>17313</ObjectId>
+      <ColNames>trip_id</ColNames>
+      <RefTableId>17289</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>trips</RefTableName>
+      <RefKeyName>trips_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="29" parent="17" name="version">
+      <Position>1</Position>
+      <DataType>varchar|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1048</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="30" parent="17" name="unique_schema_migrations">
+      <ObjectId>17268</ObjectId>
+      <ColNames>version</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <column id="31" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1053</StateNumber>
+      <DefaultExpression>nextval(&apos;trips_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>trips_id_seq</SequenceName>
+    </column>
+    <column id="32" parent="18" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1053</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="33" parent="18" name="title">
+      <Position>3</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>1053</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="34" parent="18" name="description">
+      <Position>4</Position>
+      <DataType>text|0</DataType>
+      <StateNumber>1053</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="35" parent="18" name="d_latitude">
+      <Position>5</Position>
+      <DataType>numeric|0</DataType>
+      <StateNumber>1053</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="36" parent="18" name="d_longitude">
+      <Position>6</Position>
+      <DataType>numeric|0</DataType>
+      <StateNumber>1053</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="37" parent="18" name="h_latitude">
+      <Position>7</Position>
+      <DataType>numeric|0</DataType>
+      <StateNumber>1053</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="38" parent="18" name="h_longitude">
+      <Position>8</Position>
+      <DataType>numeric|0</DataType>
+      <StateNumber>1053</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="39" parent="18" name="created_at">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1053</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="40" parent="18" name="updated_at">
+      <Position>10</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1053</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="41" parent="18" name="trips_pkey">
+      <ObjectId>17296</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="42" parent="18" name="index_trips_on_user_id">
+      <ObjectId>17298</ObjectId>
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="43" parent="18" name="trips_pkey">
+      <ObjectId>17297</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>trips_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="44" parent="18" name="fk_rails_bfcc3c8a33">
+      <ObjectId>17299</ObjectId>
+      <ColNames>user_id</ColNames>
+      <RefTableId>17271</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="45" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1050</StateNumber>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>users_id_seq</SequenceName>
     </column>
-    <column id="19" parent="15" name="email">
+    <column id="46" parent="19" name="email">
       <Position>2</Position>
       <DataType>varchar|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
-    <column id="20" parent="15" name="encrypted_password">
+    <column id="47" parent="19" name="encrypted_password">
       <Position>3</Position>
       <DataType>varchar|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <DefaultExpression>&apos;&apos;::character varying</DefaultExpression>
       <TypeId>1043</TypeId>
     </column>
-    <column id="21" parent="15" name="reset_password_token">
+    <column id="48" parent="19" name="reset_password_token">
       <Position>4</Position>
       <DataType>varchar|0</DataType>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="22" parent="15" name="reset_password_sent_at">
+    <column id="49" parent="19" name="reset_password_sent_at">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="23" parent="15" name="remember_created_at">
+    <column id="50" parent="19" name="remember_created_at">
       <Position>6</Position>
       <DataType>timestamp|0</DataType>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="24" parent="15" name="sign_in_count">
+    <column id="51" parent="19" name="sign_in_count">
       <Position>7</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <DefaultExpression>0</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="25" parent="15" name="current_sign_in_at">
+    <column id="52" parent="19" name="current_sign_in_at">
       <Position>8</Position>
       <DataType>timestamp|0</DataType>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="26" parent="15" name="last_sign_in_at">
+    <column id="53" parent="19" name="last_sign_in_at">
       <Position>9</Position>
       <DataType>timestamp|0</DataType>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="27" parent="15" name="current_sign_in_ip">
+    <column id="54" parent="19" name="current_sign_in_ip">
       <Position>10</Position>
       <DataType>inet|0</DataType>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>869</TypeId>
     </column>
-    <column id="28" parent="15" name="last_sign_in_ip">
+    <column id="55" parent="19" name="last_sign_in_ip">
       <Position>11</Position>
       <DataType>inet|0</DataType>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>869</TypeId>
     </column>
-    <column id="29" parent="15" name="created_at">
+    <column id="56" parent="19" name="created_at">
       <Position>12</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="30" parent="15" name="updated_at">
+    <column id="57" parent="19" name="updated_at">
       <Position>13</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>919</StateNumber>
+      <StateNumber>1050</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="31" parent="15" name="name">
+    <column id="58" parent="19" name="name">
       <Position>14</Position>
       <DataType>varchar|0</DataType>
-      <StateNumber>920</StateNumber>
+      <StateNumber>1051</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="32" parent="15" name="users_pkey">
-      <ObjectId>16986</ObjectId>
+    <column id="59" parent="19" name="username">
+      <Position>15</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>1052</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="60" parent="19" name="avatar">
+      <Position>16</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>1055</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="61" parent="19" name="users_pkey">
+      <ObjectId>17281</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="33" parent="15" name="index_users_on_email">
-      <ObjectId>16988</ObjectId>
+    <index id="62" parent="19" name="index_users_on_email">
+      <ObjectId>17283</ObjectId>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="34" parent="15" name="index_users_on_reset_password_token">
-      <ObjectId>16989</ObjectId>
+    <index id="63" parent="19" name="index_users_on_reset_password_token">
+      <ObjectId>17284</ObjectId>
       <ColNames>reset_password_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="35" parent="15" name="index_users_on_name">
-      <ObjectId>16990</ObjectId>
+    <index id="64" parent="19" name="index_users_on_username">
+      <ObjectId>17286</ObjectId>
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="65" parent="19" name="index_users_on_name">
+      <ObjectId>17285</ObjectId>
       <ColNames>name</ColNames>
     </index>
-    <key id="36" parent="15" name="users_pkey">
-      <ObjectId>16987</ObjectId>
+    <key id="66" parent="19" name="users_pkey">
+      <ObjectId>17282</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
       <Primary>1</Primary>

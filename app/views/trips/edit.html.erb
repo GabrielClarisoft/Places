@@ -1,5 +1,9 @@
 <div class="form_big_container">
   <div class="form_container">
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+
     <h1>New Trip</h1>
 
     <%= form_for @trip do |form| %>
@@ -20,31 +24,28 @@
           <h3>Home coordinates</h3>
           <div class="input_container">
             <div><%= form.label :h_latitude, 'Latitude' %></div>
-            <div><%= form.text_field :h_latitude %></div>
+            <div><%= form.number_field :h_latitude %></div>
           </div>
 
           <div class="input_container">
-            <div><%= form.label :h_longitude, 'Longitude' %></div>
-            <div><%= form.text_field :h_longitude %></div>
+            <div><%= form.label :h_longitude %></div>
+            <div><%= form.number_field :h_longitude %></div>
           </div>
-          <button id="home" type="button">Set home</button>
         </div>
 
         <div class="coordinate_container">
           <h3>Destination coordinates</h3>
           <div class="input_container">
             <div><%= form.label :d_latitude, 'Latitude' %></div>
-            <div><%= form.text_field :d_latitude %></div>
+            <div><%= form.number_field :d_latitude %></div>
           </div>
 
           <div class="input_container">
-            <div><%= form.label :d_longitude, 'Longitude' %></div>
-            <div><%= form.text_field :d_longitude %></div>
+            <div><%= form.label :d_longitude %></div>
+            <div><%= form.number_field :d_longitude %></div>
           </div>
-          <button id="destination" type="button">Set destination</button>
         </div>
       </div>
-      <div id="map" style="width: 100%; height: 500px; margin-bottom: 20px"></div>
       <div class="input_container submit_button">
         <%= form.submit %>
       </div>

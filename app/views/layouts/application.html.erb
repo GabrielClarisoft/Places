@@ -3,6 +3,8 @@
 <head>
   <title>Places</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvGpbaHwB8tCQ2O1uBjNc08r9Z8J7a89Y&callback=initMap"
+          async defer></script>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -12,11 +14,12 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <% if user_signed_in? %>
-        <div class="navbar-brand" href="#">Welcome <%= link_to current_user.name, profile_path(current_user.username),  id: "current_user_link", class: "current_user_link"%></div>
+        <div class="navbar-brand" href="#">Welcome <%= link_to current_user.name, user_path(current_user.username), id: "current_user_link", class: "current_user_link" %></div>
       <% end %>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
+        <li><%= link_to 'New trip', new_trip_path %></li>
         <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       <% else %>

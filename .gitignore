@@ -6,10 +6,33 @@
 
 # Ignore bundler config.
 /.bundle
+*.rdb
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
-/config/database.yml
+vendor/bundle
+public/system/
+imports/
 /config/secrets.yml
+/config/secrets.yml.local
+/config/database.yml
+public/*-.
+run/
+public/assets/
+public/assets/
+/db/develipment.sqlite3*
+/public/assets/
+config/twilio.yml
+config/mandrill.yml
+node_modules/
+config/redis.yml
+dump.rdb
+config/initializers/call_source.rb
+/patient_neews/nbproject/private/
+/patientNewa/nbproject/private/
+/nbproject/private/
