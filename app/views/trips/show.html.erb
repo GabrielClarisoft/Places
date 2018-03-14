@@ -1,8 +1,39 @@
 <div class="trip_show_container">
-  <div class="trip_show_header">
+  <div class="header">
     <h1><%= @trip.title %></h1>
   </div>
-  <div class="trip_show_body">
-    <p><%= @trip.description %></p>
+  <div class="body">
+    <div class="info">
+      <div class="settings_and_info">
+        <% if current_user == @trip.user %>
+          <%= link_to "Add a photo", new_photo_path(:trip_id => @trip) %>
+        <% end %>
+      </div>
+      <div class="description">
+        <input id="h_lat" value="<%= @trip.h_latitude %>" style="display: none">
+        <input id="h_lng" value="<%= @trip.h_longitude %>" style="display: none">
+        <input id="d_lat" value="<%= @trip.d_latitude %>" style="display: none">
+        <input id="d_lng" value="<%= @trip.d_longitude %>" style="display: none">
+
+        <p><%= @trip.description %></p>
+      </div>
+    </div>
+    <div class="map" id="trip_map">
+
+    </div>
+  </div>
+  <div class="gallery">
+    <div class="owl-carousel">
+      <% for photo in @trip.photos %>
+        <div class="photo">
+          <div><%= image_tag photo.image_url.to_s %></div>
+          <div><%= photo.name %></div>
+          <div>
+            <%= link_to "edit", edit_photo_path(photo) %> |
+            <%= link_to "remove", photo, :confirm => 'Are you sure?', :method => :delete %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
