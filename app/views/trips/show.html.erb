@@ -6,7 +6,7 @@
     <div class="info">
       <div class="settings_and_info">
         <% if current_user == @trip.user %>
-          <%= link_to "Add a photo", new_photo_path(:trip_id => @trip) %>
+          <%= link_to "Add a photo", new_photo_path(:trip_id => @trip), id: 'add_photo' %>
         <% end %>
       </div>
       <div class="description">
@@ -25,12 +25,17 @@
   <div class="gallery">
     <div class="owl-carousel">
       <% for photo in @trip.photos %>
-        <div class="photo">
+        <div id="photo_<%= photo.id %>" class="photo">
           <div><%= image_tag photo.image_url.to_s %></div>
           <div><%= photo.name %></div>
           <div>
-            <%= link_to "edit", edit_photo_path(photo) %> |
-            <%= link_to "remove", photo, :confirm => 'Are you sure?', :method => :delete %>
+            <% if current_user == photo.trip.user %>
+              <%= link_to "edit", edit_photo_path(photo) %>
+            <% end %>
+
+            <% if current_user == photo.trip.user || current_user.admin? %>
+              <%= link_to "remove", photo, method: :delete, data: {confirm: 'Are you sure?'}, remote: true %>
+            <% end %>
           </div>
         </div>
       <% end %>

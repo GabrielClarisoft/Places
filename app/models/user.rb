@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
 
   has_many :trips
 
+  enum role: %i[user vip admin]
+  after_initialize :set_default_role
+
+  def set_default_role
+    self.role ||= :user
+  end
+
   mount_uploader :avatar, AvatarUploader
 end
 

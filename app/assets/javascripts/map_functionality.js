@@ -104,7 +104,6 @@ function initMap() {
     }
 
 
-
 }
 
 // Adds a marker to the map and push to the array.
@@ -126,6 +125,8 @@ function h_addMarker(location) {
     h_marker = marker;
 }
 
+var t_data = null;
+
 $(document).ready(function () {
     $(".owl-carousel").owlCarousel();
 
@@ -142,6 +143,23 @@ $(document).ready(function () {
         $("button#destination").css("background-color", "#4d90fe");
         $("button#home").css("background-color", "orange");
     });
+
+    $('#search').keyup(function () {
+        $('#data_display').html("");
+        var s_key = $('#search').val();
+        if(s_key.length >= 3) {
+            var query = '/users/' + s_key;
+            $.ajax({
+                url: query
+            }).done(function (data) {
+                t_data = data;
+                $.each(data, function (key, value) {
+                    var li = '<li>'+ value.name + '</li>';
+                    $('#data_display').append(li);
+                })
+            })
+        }
+    })
 });
 
 /*TODO:

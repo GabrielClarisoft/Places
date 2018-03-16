@@ -2,11 +2,18 @@
   <div>
     <div class="col-md-12  col-xs-16 profile_container">
       <div class="avatar">
-        <img src="https://images.pexels.com/photos/35435/pexels-photo.jpg?w=1260&h=750&auto=compress&cs=tinysrgb" class="img-thumbnail picture hidden-xs" width="300" height="230"/>
+        <%= image_tag @user.avatar.to_s, class: 'avatar' %>
       </div>
       <div class="header">
-        <h1><%= @user.name %></h1>
+        <h2><%= @user.name %></h2>
         <h4>Bucharest Romania</h4>
+        <div>
+          <% if @user == current_user %>
+            <%= link_to 'update avatar', avatar_path %>
+          <% end %>
+
+          | <%= link_to 'Delete this user', user_path, method: :delete, data: {confirm: 'Are you sure you want to delete this user?'} %>
+        </div>
         <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
 "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span>
       </div>
@@ -20,16 +27,25 @@
     <div class="well">
       <div class="media">
         <a class="pull-left" href="#">
-          <img class="media-object" src="http://bucegiplus.ro/wp-content/uploads/2015/09/P8030082.jpg" width="200px" height="150px">
+          <!--<img class="" src="http://bucegiplus.ro/wp-content/uploads/2015/09/P8030082.jpg" width="200px" height="150px">-->
+          <%= image_tag item.photos.first.image_url, class: 'media-object' %>
         </a>
         <div class="media-body">
           <h4 class="media-heading"><%= link_to item.title, trip_path(item) %></h4>
-          <p><%= item.description %></p>
+          <p id="trip_description_<%= item.id %>"><%= item.description %></p>
+          <script>
+              if ($('p#trip_description_<%=item.id%>').text().length > 400) {
+                  var a = $('p#trip_description_<%=item.id%>').text().slice(0, 400) + "... read more on the trip";
+                  $('p#trip_description_<%=item.id%>').text(a);
+              }
+          </script>
           <ul class="list-inline list-unstyled">
             <li><span><%= item.created_at %></span></li>
             <% if current_user == item.user %>
               <li><%= link_to 'Edit', edit_trip_path(item) %></li>
-              <li><%= link_to 'Delete', trip_path(item), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+              <% if current_user == item.user || current_user.admin? %>
+                <li><%= link_to 'Delete', trip_path(item), method: :delete, data: {confirm: 'Are you sure?'} %></li>
+              <% end %>
               <!-- TODO de interesat ondelete cascade-->
             <% end %>
           </ul>

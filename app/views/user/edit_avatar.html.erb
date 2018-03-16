@@ -1,9 +1,9 @@
 <div class="auth_body_container">
   <div class="auth_container" style="margin-top: 20px;">
-    <%= form_for @user do |f| %>
+    <%= form_for @user, url: {action: :update_avatar} do |f| %>
 
       <div class="field">
-        <%= f.file_field :image %>
+        <%= f.file_field :avatar %>
       </div>
 
       <div class="actions">
