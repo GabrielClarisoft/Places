@@ -1,0 +1,18 @@
+
+// test gradient
+span.text-gradient {
+  z-index: -1;
+  position: absolute;
+  width: 230px;
+  height: 30px;
+  top: 12px;
+  left: -12px;
+  background: linear-gradient(to right, orange, yellow); /* Standard syntax (must be last) */
+}
+
+div.welcome_message{
+  margin-top: 16%;
+  margin-left: 10%;
+  width: 500px;
+  position: relative;
+}

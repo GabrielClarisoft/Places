@@ -14,6 +14,10 @@ div.auth_container{
   width: 500px;
 }
 
+div.auth_container > h2{
+  text-align: center;
+}
+
 div.auth_container input[type="text"], input[type="password"], input[type="email"]{
   margin-bottom: 20px;
   width: 100%;
@@ -36,4 +40,23 @@ div.auth_container input[type=submit]:hover{
 div.auth_container div.header{
   width: 100%;
   text-align: center;
+}
+
+div.dropdown > button{
+  border: none;
+  background: transparent;
+  color: #777;
+  position: relative;
+  display: block;
+  line-height: 20px;
+  padding: 15px 20px 10px 15px;
+}
+
+div.dropdown > button:hover{
+  border: none;
+  background: transparent;
+}
+
+div.dropdown > button:focus {
+  outline: 0;
 }

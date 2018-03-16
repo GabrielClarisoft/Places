@@ -1,18 +1,95 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-div.avatar{
-  width: 300px;
+div.avatar {
+  max-width: 100%;
+  min-width: 300px;
   height: 300px;
-  margin: 20px;
+  padding: 20px;
+  margin-bottom: 40px;
 }
 
-img.avatar{
-  width: inherit;
-  height: inherit;
+div.avatar > div {
+  height: 300px;
+  width: 100%;
 }
 
-img.media-object{
+img.media-object {
   width: 200px;
   height: 200px;
+}
+
+div.result_user {
+  text-decoration: none;
+}
+
+div.result_user {
+  text-decoration: none;
+  width: 100%;
+  border-bottom: solid 1px #666666;
+  padding: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+div.result_user:hover {
+  background: darkorange;
+  color: white;
+  text-decoration: none;
+}
+
+ul#result {
+  list-style: none;
+  padding: 0;
+}
+
+a.result {
+  text-decoration: none;
+}
+
+div.profile_info {
+  max-width: 100%;
+  min-width: 200px;
+  //border: solid 1px;
+  padding: 0px 20px 20px 20px;
+}
+
+div#error_explanation {
+  color: red;
+  text-decoration: none;
+  background: rgba(255, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+div#error_explanation > h2{
+ display: none;
+}
+
+div#error_explanation > ul{
+  margin: 0;
+  list-style-type: none;
+}
+
+div#error_explanation > ul > li{
+  text-decoration: none;
+}
+
+//search bar
+nav.my-nav div.input{
+  margin-top: 8px;
+  margin-left: 20px;
+  min-width: 300px;
+  margin-right: 20px;
+}
+
+nav.my-nav ul#result{
+  position: absolute;
+  background: white;
+  width: 88%;
+  z-index: 2;
+  margin-right: 20px;
+  margin-left: 20px;
 }

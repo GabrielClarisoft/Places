@@ -145,7 +145,7 @@ $(document).ready(function () {
     });
 
     $('#search').keyup(function () {
-        $('#data_display').html("");
+        $('#result').html("");
         var s_key = $('#search').val();
         if(s_key.length >= 3) {
             var query = '/users/' + s_key;
@@ -154,8 +154,8 @@ $(document).ready(function () {
             }).done(function (data) {
                 t_data = data;
                 $.each(data, function (key, value) {
-                    var li = '<li>'+ value.name + '</li>';
-                    $('#data_display').append(li);
+                    var li = '<li><a class="result" href="/user/' + value.username + '"><div class="result_user">'+ value.name + '</div></a></li>';
+                    $('#result').append(li);
                 })
             })
         }

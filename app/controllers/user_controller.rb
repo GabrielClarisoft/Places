@@ -46,6 +46,10 @@ class UserController < ApplicationController
     render json: @users.as_json
   end
 
+  def create_user
+    render 'create_account'
+  end
+
   private
 
   def user_avatar
