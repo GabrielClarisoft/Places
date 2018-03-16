@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45041678-934f-4325-8916-f5bb9c531433" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/welcome.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/user/create_account.html.erb" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/map_functionality.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/map_functionality.js" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/auth.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/auth.scss" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/user.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/user.scss" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/user_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/user_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/search_user.html.erb" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/views/user/show.html.erb" afterPath="$PROJECT_DIR$/app/views/user/show.html.erb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -550,7 +539,7 @@
       <workItem from="1521096078483" duration="18382000" />
       <workItem from="1521121351171" duration="1060000" />
       <workItem from="1521180938206" duration="24957000" />
-      <workItem from="1521210486403" duration="1507000" />
+      <workItem from="1521210486403" duration="1526000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1520869506281</created>
@@ -594,11 +583,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521186598588</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="a little closer to heaven">
+      <created>1521212007681</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1521212007681</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126863000" />
+    <option name="totallyTimeSpent" value="126882000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -611,6 +607,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="116" y="117" width="1897" height="1083" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23309897" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -896,6 +893,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="50" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
