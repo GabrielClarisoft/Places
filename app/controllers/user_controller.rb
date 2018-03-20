@@ -1,3 +1,4 @@
+# user functionality
 class UserController < ApplicationController
   before_action :authenticate_user!
 
@@ -6,11 +7,11 @@ class UserController < ApplicationController
   end
 
   def edit_avatar
-    @user = User.find_by_username!(params[:username]);
+    @user = User.find_by_username!(params[:username])
   end
 
   def update_avatar
-    @user = User.find_by_username!(params[:username]);
+    @user = User.find_by_username!(params[:username])
     if @user.id != current_user.id
       flash[:notice] = 'You don\'t have the right to edit this user avatar'
       redirect_to user_path(@user.username)
@@ -28,6 +29,7 @@ class UserController < ApplicationController
     @user = User.find_by_username!(params[:username])
     if current_user.admin?
       @user.destroy
+      redirect_to admin_path
     end
   end
 

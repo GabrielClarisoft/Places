@@ -13,21 +13,20 @@
 <nav class="navbar navbar-default my-nav">
   <div class="container-fluid">
     <div class="navbar-header">
-      <% if user_signed_in? %>
-        <div class="navbar-brand" href="#"><%= link_to 'Places', root_path %></div>
-        <div class="navbar-brand" href="#">Welcome <%= link_to current_user.name, user_path(current_user.username), id: "current_user_link", class: "current_user_link" %></div>
-      <% end %>
+      <div class="navbar-brand" href="#"><%= link_to 'Places', root_path, class: 'navbar_link', id: 'title_navbar' %></div>
     </div>
-    <ul class="nav navbar-nav navbar-left">
-      <li>
-        <div class="input">
-          <input type="text" class="form-control" id="search" placeholder="look for someone">
-        </div>
-        <ul id="result">
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <div class="input">
+            <input type="text" class="form-control" id="search" placeholder="look for someone">
+          </div>
+          <ul id="result">
 
-        </ul>
-      </li>
-    </ul>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
         <li><a>You are logged as <%= current_user.role %></a></li>
@@ -38,6 +37,10 @@
               Account settings
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><%= link_to current_user.name, user_path(current_user.username), id: "current_user_link", class: "current_user_link" %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to 'Admin Page', admin_path %></li>
+              <% end %>
               <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

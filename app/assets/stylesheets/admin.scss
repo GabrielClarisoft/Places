@@ -1,0 +1,63 @@
+// Place all the styles related to the Admin controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.admin-body{
+  display: inline-block;
+  vertical-align: center;
+  width: 100%;
+  padding: 5px;
+}
+
+div.admin-container{
+  max-width: 600px;
+  margin: 0 auto;
+  width: 60%;
+  min-width: 200px;
+}
+
+div.newuser-container{
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000;
+  width: 500px;
+  padding: 20px;
+}
+
+div.newuser-container h1{
+  text-align: center;
+}
+
+div.admin-container input[type="text"]{
+  width: 100%;
+
+}
+
+div.admin-container .field{
+  margin-bottom: 20px;
+}
+
+div.admin-container table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+div.admin-container td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px !important;
+}
+
+div.admin-container tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+div.admin-container input[type="submit"]{
+  background: #4d90fe;
+  font-weight: bold;
+  border: 1px solid #3079ed;
+  color: white;
+  padding: 5px;
+  width: 100%;
+}

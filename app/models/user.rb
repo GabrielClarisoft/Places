@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   validates_uniqueness_of :username
 
-  has_many :trips
+  has_many :trips, dependent: :delete_all
 
   enum role: %i[user vip admin]
   after_initialize :set_default_role

@@ -1,58 +1,61 @@
-<div class="container">
-  <div class="row" style="max-width: 100%">
-    <div class="col-md-4 avatar">
-    <div style="background: url(<%=@user.avatar.to_s%>) no-repeat center;"></div>
+<div class="container container-profile">
+  <div class="my-background"></div>
+  <div class="my-card">
+    <div class="my-card-header">
+      <h4><%= @user.name %></h4>
+    </div>
+    <div class="my-card-body">
+      <div class="avatar">
+        <%= image_tag @user.avatar.to_s, class: 'avatar' %>
+      </div>
+      <div class="profile_info">
+        <p>Bucharest Romania</p>
+        <p>
+          <% if @user == current_user %>
+            <%= link_to 'update avatar', avatar_path %>
+          <% end %>
+          <% if current_user == @user || current_user.admin? %>
+            | <%= link_to 'Delete this user', user_path, method: :delete, data: {confirm: 'Are you sure you want to delete this user?'} %>
+          <% end %>
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="col-md-8 profile_info">
-    <h4><%= @user.name %></h4>
-    <p>Bucharest Romania</p>
-    <p>
-      <% if @user == current_user %>
-        <%= link_to 'update avatar', avatar_path %>
-      <% end %>
-      <% if current_user == @user || current_user.admin? %>
-        | <%= link_to 'Delete this user', user_path, method: :delete, data: {confirm: 'Are you sure you want to delete this user?'} %>
-      <% end %>
-    </p>
-    <span>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quam magna, viverra et lacus sed, eleifend volutpat tortor. Nam tellus erat, gravida quis bibendum sed, placerat eget tellus. Sed suscipit vitae turpis vestibulum mollis. Suspendisse fermentum diam eget ante blandit, id placerat nisi porta. Nullam vitae consectetur mi. Suspendisse nisl lacus, facilisis ac volutpat id, tristique in mauris. Maecenas porttitor ullamcorper odio, quis imperdiet arcu interdum a.
-
-Fusce eget sem non sapien finibus gravida ut et ipsum. Aliquam vitae nibh ligula. Vestibulum nec justo accumsan purus iaculis volutpat. Sed maximus enim sed sapien accumsan, eu pretium risus cursus. Donec placerat, lacus ut lacinia tempus, magna dui accumsan elit, in tempus turpis felis ultrices magna. Nulla eleifend lectus et nunc dictum, eu facilisis mauris fermentum. Mauris placerat hendrerit orci, quis hendrerit neque luctus at. Maecenas tellus eros, auctor non orci sit amet, dictum sagittis metus. Cras fringilla convallis finibus. Integer egestas metus ut tristique tristique. Sed ac quam scelerisque, sodales elit quis, placerat dui. Donec quis dictum ipsum. Nullam in orci quis ligula eleifend sagittis. Sed sodales, sem ut pharetra tempor, metus nisl luctus lorem, ut vehicula odio dolor nec ligula. Morbi vitae eros bibendum, ornare sapien a, eleifend enim.
-      </span>
-  </div>
-</div>
-</div>
 
 
-<% @user.trips.each do |item| %>
-  <div class="container">
-    <div class="well">
-      <div class="media">
-        <a class="pull-left" href="#">
-          <!--<img class="" src="http://bucegiplus.ro/wp-content/uploads/2015/09/P8030082.jpg" width="200px" height="150px">-->
-          <%= image_tag item.photos.first.image_url, class: 'media-object' %>
-        </a>
-        <div class="media-body">
-          <h4 class="media-heading"><%= link_to item.title, trip_path(item) %></h4>
-          <p id="trip_description_<%= item.id %>"><%= item.description %></p>
-          <script>
-              if ($('p#trip_description_<%=item.id%>').text().length > 400) {
-                  var a = $('p#trip_description_<%=item.id%>').text().slice(0, 400) + "... read more on the trip";
-                  $('p#trip_description_<%=item.id%>').text(a);
-              }
-          </script>
-          <ul class="list-inline list-unstyled">
-            <li><span><%= item.created_at %></span></li>
-            <% if current_user == item.user %>
-              <li><%= link_to 'Edit', edit_trip_path(item) %></li>
+  <div class="container container-trips">
+    <% @user.trips.each do |item| %>
+      <div class="container-trip">
+        <div class="container-trip-header">
+          <h4 class=""><%= link_to item.title, trip_path(item) %></h4>
+        </div>
+        <div class="container-trip-body">
+          <div class="trip-image">
+            <% unless item.photos.first.nil? %>
+              <%= image_tag item.photos.first.image_url, class: 'trip' %>
+            <% end %>
+          </div>
+          <div class="container-trip-description">
+            <p id="trip_description_<%= item.id %>"><%= item.description %></p>
+            <script>
+                if ($('p#trip_description_<%=item.id%>').text().length > 400) {
+                    var a = $('p#trip_description_<%=item.id%>').text().slice(0, 400) + "... read more on the trip";
+                    $('p#trip_description_<%=item.id%>').text(a);
+                }
+            </script>
+            <ul class="list-inline list-unstyled">
+              <li><span><%= item.created_at %></span></li>
+              <% if current_user == item.user %>
+                <li><%= link_to 'Edit', edit_trip_path(item) %></li>
+              <% end %>
               <% if current_user == item.user || current_user.admin? %>
                 <li><%= link_to 'Delete', trip_path(item), method: :delete, data: {confirm: 'Are you sure?'} %></li>
               <% end %>
               <!-- TODO de interesat ondelete cascade-->
-            <% end %>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>

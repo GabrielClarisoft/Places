@@ -1,0 +1,23 @@
+<div class="container admin-container">
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Administration</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <th><%= user.username %></th>
+        <th><%= user.name %></th>
+        <th><%= user.email %></th>
+        <th><%= user.role %></th>
+        <th><%= link_to 'Delete', user_path(user.username), controller: :user, method: :delete, data: {confirm: 'Are you sure you want to delete this user?'} %></th>
+      </tr>
+    <% end %>
+    <tr>
+      <th colspan="5"><%= link_to 'Add new user', admin_new_user_path%></th>
+    </tr>
+  </table>
+</div>

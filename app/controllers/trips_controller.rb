@@ -38,7 +38,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip = Trip.find(params[:id])
-    if current_user != @trip.user && current_user.admin?
+    if current_user != @trip.user && !current_user.admin?
       redirect_to @trip
     end
 

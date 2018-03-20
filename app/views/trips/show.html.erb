@@ -26,7 +26,7 @@
     <div class="owl-carousel">
       <% for photo in @trip.photos %>
         <div id="photo_<%= photo.id %>" class="photo">
-          <div><%= image_tag photo.image_url.to_s %></div>
+          <div><a href="<%= photo.image_url.to_s %>" data-lightbox="photo<%= photo.id %>"><%= image_tag photo.image_url.to_s %></a></div>
           <div><%= photo.name %></div>
           <div>
             <% if current_user == photo.trip.user %>

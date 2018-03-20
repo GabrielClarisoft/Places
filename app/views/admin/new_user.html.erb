@@ -1,0 +1,56 @@
+<div class="container admin-body">
+  <div class="admin-container newuser-container">
+
+    <%= form_for @user, url: {controller: 'admin', action: 'create_user'} do |f| %>
+
+      <h1>Create account for someone as admin</h1>
+      <ul>
+        <% unless flash[:error].nil?
+             flash[:error].each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :username %><br/>
+        <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br/>
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br/>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :role %><br/>
+        <select name="user[role]" id="user_role" class="form-control">
+          <option value="user">User</option>
+          <option value="vip">Vip</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+  </div>
+</div>

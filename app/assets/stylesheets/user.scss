@@ -1,19 +1,6 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-div.avatar {
-  max-width: 100%;
-  min-width: 300px;
-  height: 300px;
-  padding: 20px;
-  margin-bottom: 40px;
-}
-
-div.avatar > div {
-  height: 300px;
-  width: 100%;
-}
-
 img.media-object {
   width: 200px;
   height: 200px;
@@ -64,32 +51,149 @@ div#error_explanation {
   margin: 10px;
 }
 
-div#error_explanation > h2{
- display: none;
+div#error_explanation > h2 {
+  display: none;
 }
 
-div#error_explanation > ul{
+div#error_explanation > ul {
   margin: 0;
   list-style-type: none;
 }
 
-div#error_explanation > ul > li{
+div#error_explanation > ul > li {
   text-decoration: none;
 }
 
 //search bar
-nav.my-nav div.input{
+nav.my-nav div.input {
   margin-top: 8px;
   margin-left: 20px;
   min-width: 300px;
   margin-right: 20px;
 }
 
-nav.my-nav ul#result{
+nav.my-nav ul#result {
   position: absolute;
   background: white;
   width: 88%;
   z-index: 2;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+div.container-profile {
+  position: relative;
+}
+
+//profile card
+div.my-card {
+  z-index: 2;
+  border: solid 1px lightgray;
+  box-shadow: 2px 2px lightgray;
+  width: 302px;
+  position: absolute;
+  background: white;
+  height: auto;
+  top: 100px;
+  left: 100px;
+}
+
+div.my-card div.avatar {
+  z-index: 1;
+  width: 100%;
+  height: 200px;
+}
+
+div.my-card div.my-card-header {
+  height: 50px;
+  text-align: center;
+}
+
+div.my-card img.avatar {
+  position: relative;
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
+  z-index: -1;
+  margin: 0 auto;
+}
+
+div.my-card h4 {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}
+
+// background
+
+div.my-background {
+  width: 100%;
+  height: 200px;
+  background: darkorange;
+}
+
+// trips
+div.container-trips {
+  float: right;
+  //border: solid 1px lightgray;
+  //box-shadow: 2px 2px lightgray;
+  width: calc(100%);
+  margin-top: 20px;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+div.container-trip{
+  width: calc(100%);
+  margin-top: 20px;
+  padding: 0;
+  border: solid 1px lightgray;
+  box-shadow: 2px 2px lightgray;
+  float: right;
+}
+
+div.container-trip:first-child{
+  margin-top: 300px;
+}
+
+div.container-trips h4 {
+  text-align: center;
+  font-size: 2em;
+  width: 100%;
+  text-decoration: none;
+}
+
+div.container-trips h4 > a{
+  text-decoration: none;
+}
+
+div.trip-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #4d90fe ;
+  border-top: solid 1px #4d90fe;
+  background: #4d90fe;
+}
+
+div.container-trips img.trip {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+div.container-trip-description{
+  padding: 20px;
+}
+
+div.container-trip-header {
+  height: 50px;
+}
+
+@media (min-width: 1200px) {
+  div.container-trip:first-child {
+    margin-top: 50px;
+    width: calc(60%);
+  }
 }

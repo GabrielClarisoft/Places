@@ -15,6 +15,14 @@ Rails.application.routes.draw do
 
   get '/find', to: 'user#find', as: 'find'
 
+  # admin
+
+  get 'admin', to: 'admin#show', as: 'admin'
+
+  get 'admin/new_user', to: 'admin#new_user', as: 'admin_new_user'
+
+  post 'admin/create_user', to: 'admin#create_user'
+
   resources :trips
 
   resources :photos

@@ -1,5 +1,5 @@
 <div class="auth_body_container">
-  <div class="auth_container">
+  <div class="auth_container" id="register">
     <h2>Sign up</h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -25,7 +25,8 @@
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br/>
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", id: 'password' %>
+        <span id="password_str"></span>
       </div>
 
       <div class="field">
